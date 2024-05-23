@@ -1,7 +1,7 @@
 <?php
     $inData = getRequestInfo();
 
-    //Ask name, username, password
+    //Ask name, email, password, and phone number
     $firstName = $inData["firstName"];
     $lastName = $inData["lastName"];
     $username = $inData["username"];
