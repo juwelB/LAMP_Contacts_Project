@@ -1,0 +1,40 @@
+
+// SQL Script for Users Table.
+
+CREATE TABLE `COP4331`.`Users`
+(
+
+    `ID` INT NOT NULL AUTO_INCREMENT ,
+    `DateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    `DateLastLoggedIn` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    `FirstName` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `LastName` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `Login` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `Password` VARCHAR(50) NOT NULL DEFAULT '' ,
+    PRIMARY KEY (`ID`)
+
+) ENGINE = InnoDB;
+
+// SQL Script for Contacts Table.
+
+CREATE TABLE `COP4331`.`Contacts`
+(
+
+    `ID` INT NOT NULL AUTO_INCREMENT ,
+    `FirstName` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `FirstName` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `Phone` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `Email` VARCHAR(50) NOT NULL DEFAULT '' ,
+    `UserID` INT NOT NULL DEFAULT '0' ,
+    PRIMARY KEY (`ID`)
+
+) ENGINE = InnoDB;
+
+// Sample Data Thrown Into Database.
+
+INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES ('Jon', 'Snow', '123-456-7890', 'jon.snow@example.com', 1);
+INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES ('Daenerys', 'Targaryen', '234-567-8901', 'daenerys.targaryen@example.com', 1);
+INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES ('Arya', 'Stark', '345-678-9012', 'arya.stark@example.com', 1);
+INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES ('Tyrion', 'Lannister', '456-789-0123', 'tyrion.lannister@example.com', 1);
+INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES ('Cersei', 'Lannister', '567-890-1234', 'cersei.lannister@example.com', 1);
+
