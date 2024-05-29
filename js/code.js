@@ -151,11 +151,39 @@ function readCookie() {
 }
 // add contact
 function addContact() {
+    // Clear previous error highlights
+    document.getElementById("contactfirstName").classList.remove("error");
+    document.getElementById("contactlastName").classList.remove("error");
+    document.getElementById("contactphoneNumber").classList.remove("error");
+    document.getElementById("contactemail").classList.remove("error");
 
-    let firstname = document.getElementById("contactfirstName").value;
-    let lastname = document.getElementById("contactlastName").value;
-    let phonenumber = document.getElementById("contactphoneNumber").value;
-    let emailaddress = document.getElementById("contactemail").value;
+    let firstname = document.getElementById("contactfirstName").value.trim();
+    let lastname = document.getElementById("contactlastName").value.trim();
+    let phonenumber = document.getElementById("contactphoneNumber").value.trim();
+    let emailaddress = document.getElementById("contactemail").value.trim();
+
+    let valid = true;
+
+    if (firstname === "") {
+        document.getElementById("contactfirstName").classList.add("error");
+        valid = false;
+    }
+    if (lastname === "") {
+        document.getElementById("contactlastName").classList.add("error");
+        valid = false;
+    }
+    if (phonenumber === "") {
+        document.getElementById("contactphoneNumber").classList.add("error");
+        valid = false;
+    }
+    if (emailaddress === "") {
+        document.getElementById("contactemail").classList.add("error");
+        valid = false;
+    }
+
+    if (!valid) {
+        return;
+    }
 
     let tmp = {
         FirstName: firstname,
@@ -164,7 +192,6 @@ function addContact() {
         Email: emailaddress,
         userId: userId
     };
-
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -177,9 +204,7 @@ function addContact() {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 console.log("Contact has been added");
-                // reload contacts table and switch view to show
                 loadContacts();
-                //     showTable();
             }
         };
         xhr.send(jsonPayload);
