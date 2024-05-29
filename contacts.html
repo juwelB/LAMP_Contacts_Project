@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/code.js"></script>
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="css/contacts.css">
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+        readCookie();
+    }, false);
+</script>
+    
+</head>
+<body>
+    <button class="logout-button" onclick="logout();">Logout</button>
+    <h1>Fish Contact Manager</h1>
+    <h2>Add Contact</h2>
+    <button class="swap-button" onclick="showTable();">Add Contact</button>
+    <form id="contactForm" action="" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="contactfirstName" required placeholder="First Name"><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="contactlastName" required placeholder="Last Name"><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="contactphoneNumber" required placeholder="123-456-7890"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="contactemail" required placeholder="example@email.com"><br><br>
+        <button type="submit" onclick="addContact();">Confirm</button>
+        <span class="text" id="searchContact"></span>
+    </form>
+
+    <h2>Search Contacts</h2>
+    <input type="text" id="searchInput" placeholder="Search for names..">
+    <button class="search-button" onclick="loadContacts();">Search</button>
+
+    <h2>Contacts</h2>
+    <!--contact table-->
+		<div class="tables">
+			<div class="tbl-content" id="tables">
+				<table id="contactTable" cellpadding="0" cellspacing="0" border="0">
+					<thread>
+						<tr>
+							<th>First&nbspName</th>
+							<th>Last&nbspName</th>
+							<th>Email</th>
+							<th>Phone</th>
+						</tr>
+					</thread>
+					<tbody id="tbody"></tbody>
+				</table>
+			</div>
+		</div>
+</body>
+</html>
+
