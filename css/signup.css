@@ -16,6 +16,7 @@ body {
     background-position: center center;
     background-size: cover;
 }
+
 .form-container {
     background-color: #ffffff; /* White background for the form container */
     padding: 20px;
@@ -24,31 +25,77 @@ body {
     width: 300px; /* Fixed width for the form container */
     text-align: center;
 }
+
 form {
     display: flex;
     flex-direction: column;
 }
 
+/* Style for the input groups */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Maintain margin between input groups */
+}
+
+/* Style for the inputs */
 form input {
-    margin-bottom: 15px;
+    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* Style for the span that contains the validation icons */
+input + span {
+    display: inline-block; /* Ensure span is on the same line */
+    position: relative;
+    width: 20px; /* Fixed width for span to prevent layout shift */
+    height: 20px; /* Fixed height for span to prevent layout shift */
+    margin-left: 10px; /* Space between input and icon */
+}
+
+/* Style for the validation icons */
+input + span::before {
+    position: absolute;
+    right: 0; /* Align icon to the right of the span */
+    top: 50%; /* Align icon vertically */
+    transform: translateY(-50%); /* Center icon vertically */
+    font-size: 20px; /* Set icon size */
+}
+
+/* Invalid input styling */
+input:invalid {
+    border: 2px solid #d90000;
+}
+
+/* Invalid icon styling */
+input:invalid + span::before {
+    content: "✖";
+    color: #d90000;
+}
+
+/* Valid icon styling */
+input:valid + span::before {
+    content: "✓";
+    color: #107b29;
+}
+
 .checkbox_pass {
-    margin-top: -15px;
-    margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    align-items: left;
+    justify-content: flex-start; /* Align checkbox and label to the left */
+    margin-bottom: 15px;
+    text-align: left; /* Ensure the text is left-aligned */
+    margin-right: 120px;
 }
 
 .checkbox_pass input {
     margin-right: 5px;
-    margin-top: 13px;
 }
+
 .submitBtn2 {
-    background-color: #1e8035; /* Button background color */
+    background-color: #107b29; /* Button background color */
     color: white; /* Button text color */
     border: none;
     padding: 10px 20px;
@@ -65,30 +112,32 @@ form input {
     margin-top: 15px;
     color: #d90000; /* Error or status message color */
 }
+
 .backBtn {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     background-color: #307EA6;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .backBtn:hover {
     background-color: #246281;
 }
-.valid
-{
-    color: #145c25;
-}
-.invalid
-{
-    color: #d90000;
+
+#password-requirements {
+    margin-bottom: 20px;
 }
 
-#password-requirements{
-    margin-bottom: 20px;
+.valid {
+    color: #145c25;
+}
+
+.invalid {
+    color: #d90000;
 }
 
 ul.no-bullets {
@@ -96,4 +145,3 @@ ul.no-bullets {
     padding: 0;
     margin: 0;
 }
-

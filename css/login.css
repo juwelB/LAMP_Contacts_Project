@@ -32,6 +32,7 @@ form {
 }
 
 form input {
+    
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -42,8 +43,6 @@ form input {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    transform: scale(1.08);
-    margin-left: 13px;
 }
 
 .checkbox_pass input {
@@ -52,7 +51,7 @@ form input {
 }
 
 .submitBtn {
-    background-color: #1e8035; /* Button background color */
+    background-color: #138035; /* Button background color */
     color: white; /* Button text color */
     border: none;
     padding: 10px 20px;
@@ -83,3 +82,30 @@ form input {
 .backBtn:hover {
     background-color: #246281;
 }
+
+input + span {
+    position: relative;
+  }
+  
+  input + span::before {
+    position: absolute;
+    right: -16px;
+    top: -45px;
+  }
+  
+  
+  input:invalid {
+    border: 2px solid red;
+  }
+ 
+  
+  input:invalid + span::before {
+    content: "✖";
+    color: red;
+  }
+  
+  input:valid + span::before {
+    content: "✓";
+    color: green;
+  }
+  
