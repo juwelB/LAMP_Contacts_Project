@@ -8,28 +8,14 @@ const ids = []
 
 //showpass
 function showPasswordLogin() {
-    var hidePass = document.getElementById("password_field");
-    if (hidePass.type === "password")
-    {
-            hidePass.type = "text";
-    }
-    else
-    {
-            hidePass.type = "password";
+    var passwordField = document.getElementById("password_field");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
     }
 }
-//showpass
-function showPasswordSignup() {
-    var hidePass2 = document.getElementById("signup_password_field");
-    if (hidePass2.type === "password")
-    {
-            hidePass2.type = "text";
-    }
-    else
-    {
-            hidePass2.type = "password";
-    }
-}
+
 // login
 function doLogin() {
     userId = 0;
@@ -38,14 +24,14 @@ function doLogin() {
 
     let login = document.getElementById("username_field").value;
     let password = document.getElementById("password_field").value;
-    // var hash = md5(password);  // commended for debuging
+    var hash = md5(password);  // commended for debuging
 
     document.getElementById("loginResult").innerHTML = "";
 
-    // var tmp = { login: login, password: hash }; // commended for debuging
+    var tmp = { login: login, password: hash }; // commended for debuging
 
 
-    var tmp = { login: login, password: password }; // commended for debuging
+    //var tmp = { login: login, password: password }; // commended for debuging
     let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/Login.' + extension;
@@ -86,7 +72,19 @@ function doSignup() {
     lastName = document.getElementById("signup_lastname_field").value;
 
     let username = document.getElementById("signup_username_field").value;
-    let password = document.getElementById("signup_password_field").value;
+    let password = document.getElementById("password_field").value;
+
+    let valid = true;
+    var regexP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (regexP.test(password) == false) {
+            console.log("PASSWORD IS NOT VALID");
+            valid = false;
+        }
+        if(!valid)
+        {
+            return;
+        }
 
     var hash = md5(password);
 
@@ -188,22 +186,38 @@ function addContact() {
 
     let valid = true;
 
-    if (firstname === "") {
+    const regexP = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+    const regexE = /[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
+
+    if (firstname === "") 
+    {
         document.getElementById("contactfirstName").classList.add("error");
         valid = false;
     }
-    if (lastname === "") {
-        document.getElementById("contactlastName").classList.add("error");
+    if (lastname === "") 
+    {
+        document.getElementById("contactlastName").classList.add("error");        
         valid = false;
     }
-    if (phonenumber === "") {
+    if (phonenumber === "") 
+    {
         document.getElementById("contactphoneNumber").classList.add("error");
         valid = false;
-    }
-    if (emailaddress === "") {
+    }else if(regexP.test(phonenumber) == false)
+        {
+            console.log("Phone number is not valid");
+            valid = false;
+        }
+
+    if (emailaddress === "") 
+    {
         document.getElementById("contactemail").classList.add("error");
         valid = false;
-    }
+    } else if(regexE.test(emailaddress) == false)
+        {
+            console.log("Email Address is not valid");
+            valid = false;
+        }
 
     if (!valid) {
         return;
@@ -273,9 +287,9 @@ function loadContacts() {
                         text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
                         text += "<td id='email" + i + "'><span>" + jsonObject.results[i].Email + "</span></td>";
                         text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].Phone + "</span></td>";
-                        text += "<td><button id='edit_button" + i + "' onclick='editContact(" + i + ")'>Edit</button>";
-                        text += "<button id='save_button" + i + "' onclick='saveContact(" + i + ")' style='display:none;'>Save</button></td>";
-                        text += "<td><button onclick='deleteContact(" + ids[i] + ")'>Delete</button></td>";
+                        text += "<td><button id='edit_button" + i + "' class='edit-button' onclick='editContact(" + i + ")'>Edit</button>";
+                        text += "<button id='save_button" + i + "' class='edit-button' onclick='saveContact(" + i + ")' style='display:none;'>Save</button></td>";
+                        text += "<td><button class='delete-button' onclick='deleteContact(" + ids[i] + ")'>Delete</button></td>";
                         text += "</tr>";
                     }
                     text += "</table>"
@@ -288,6 +302,7 @@ function loadContacts() {
         console.log(err.message);
     }
 }
+
 function showTable() {
     var x = document.getElementById("contactForm");
     if (x.style.display === "none") {
@@ -375,5 +390,14 @@ function deleteContact(contactId){
             }
         };
         xhr.send(jsonPayload);
+    }
+}
+
+function showTable() {
+    const form = document.getElementById("contactForm");
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
     }
 }
