@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-image: url(../images/underwater.png);
+    background-color: #307EA6; /* Fallback color */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center the content area */
+    background-position: center center;
+    background-size: cover;
+    align-items: center;
+    height: 90vh;
+}
+
+.container {
+    background-color: #e0f7fa; /* Light blue background for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.logout-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #c61515;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.swap-button {
+    background-color: #014f79;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto; /* Center the button */
+}
+
+.swap-button:hover {
+    background-color: #012b43;
+}
+
+.logout-button:hover {
+    background-color: #c61515c2;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #000080; /* Navy color for headers */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better readability */
+    position: relative;
+    margin: 20px 0;
+}
+
+h2::before, h2::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 2px; /* Thicker lines */
+    background: #000080; /* Navy color for lines */
+}
+
+h2::before {
+    left: 0;
+    margin-right: 10px; /* Add gap */
+}
+
+h2::after {
+    right: 0;
+    margin-left: 10px; /* Add gap */
+}
+
+form {
+    background-color: #b2ebf2; /* Light blue for the form background */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%; /* Ensure form does not exceed container width */
+    display: none; /* Hide the form initially */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000080; /* Navy color for labels */
+}
+
+form input {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+form button {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #0288d1; /* Darker blue for the buttons */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #02598c; /* Darker shade on hover */
+}
+
+.input-group {
+    display: flex;
+    justify-content: center; /* Center the input and button */
+    margin-bottom: 20px;
+    align-items: center; /* Align items vertically */
+}
+
+
+input#searchInput {
+    padding: 8px 15px; /* Adjusted padding to change height */
+    border: 1px solid #ddd;
+    font-family: 'Lexend Deca', sans-serif;
+    border-radius: 4px;
+    width: 80%; /* Adjust this value to make the search box smaller in width if needed */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #b2ebf2; /* Light blue for the table background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    color: #000080; /* Navy color for table text */
+}
+
+th {
+    background-color: #80deea; /* Slightly darker blue for table headers */
+}
+
+tr:nth-child(even) {
+    background-color: #e0f7fa; /* Light blue for alternate rows */
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button.search-button {
+    padding: 15px 22.5px;
+    background-color: #0288d1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.search-button:hover {
+    background-color: #0277bd;
+}
+
+.corner-logo {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 150px;
+    height: 150px; 
+}
+
+button.edit-button, button.delete-button {
+    background-color: #0288d1; 
+    color: #fff; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-family: 'Lexend Deca', sans-serif; 
+    font-size: 16px; 
+}
+
+button.edit-button:hover, button.delete-button:hover {
+    background-color: #02598c; /* Darker shade on hover */
+}
+
+input + span {
+    position: relative;
+  }
+  
+  input + span::before {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+  }
+  
+  input:invalid {
+    border: 2px solid red;
+  }
+  
+  input:invalid + span::before {
+    content: "✖";
+    color: red;
+  }
+  
+  input:valid + span::before {
+    content: "✓";
+    color: green;
+  }
+  

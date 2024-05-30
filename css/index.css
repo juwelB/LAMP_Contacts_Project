@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+#homescreen {
+    position: absolute;
+    top: 20px; /* Aligns with the button */
+    left: 20px; /* Position to the left */
+    font-size: 30px;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #000; /* You can change the color as needed */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.btn {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    padding: 10px 20px;
+    background-color: #307EA6; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #25617E; /* Darken the button on hover */
+}
+
+body{
+    background-color: #307EA6;
+    background-image: url('../images/abovewater.png');
+    background-position: center center;
+    background-size: cover;
+}

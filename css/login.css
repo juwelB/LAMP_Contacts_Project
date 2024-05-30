@@ -1,0 +1,85 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-image: url(../images/underwater.png);
+    background-color: #307EA6; /* Light background color */
+    background-position: center center;
+    background-size: cover;
+}
+
+.form-container {
+    background-color: #ffffff; /* White background for the form container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+    width: 300px; /* Fixed width for the form container */
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox_pass {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transform: scale(1.08);
+    margin-left: 13px;
+}
+
+.checkbox_pass input {
+    margin-right: 5px;
+    margin-top: 13px;
+}
+
+.submitBtn {
+    background-color: #1e8035; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submitBtn:hover {
+    background-color: #145c25; /* Darken button on hover */
+}
+
+.text {
+    margin-top: 15px;
+    color: red; /* Error or status message color */
+}
+
+.backBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #307EA6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.backBtn:hover {
+    background-color: #246281;
+}
