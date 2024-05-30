@@ -14,7 +14,7 @@
 	{
 		$stmt = $conn->prepare("select * from Contacts where (FirstName like ? OR LastName like? OR Email like? OR Phone like?) and UserID=?");
 		$colorName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("sssss", $colorName, $colorName, $colorName, $colorName, $inData["userId"]);
+		$stmt->bind_param("sssss",$colorName,$colorName, $colorName, $colorName,$inData["userId"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -27,7 +27,7 @@
 			}
 			$searchCount++;
 			//$searchResults .= '"' . $row["FirstName"] . '"';
-            $searchResults .= ' { "FirstName" : " ' . $row["FirstName"] . '", 
+            $searchResults .= ' { "ID" : " ' . $row["ID"] . '","FirstName" : " ' . $row["FirstName"] . '", 
             "LastName" : " ' . $row["LastName"] . '",
             "Phone" : " ' . $row["Phone"] . '",
             "Email" : " ' . $row["Email"] . '"}';
