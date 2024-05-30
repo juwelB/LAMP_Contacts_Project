@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/code.js"></script>
+        <title>Contact Manager</title>
+        <link rel="stylesheet" href="css/contacts.css">
+        <link rel="icon" href="../images/logo.png" type="image/png">
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                readCookie();
+                document.getElementById('contactForm').style.display = 'none'; // Hide the form initially
+            }, false);
+
+            function toggleContactForm() {
+                const form = document.getElementById('contactForm');
+                if (form.style.display === 'none') {
+                    form.style.display = 'block';
+                } else {
+                    form.style.display = 'none';
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <button class="logout-button" onclick="logout();">Logout</button>
+        <img src="images/logo.png" alt="Logo" class="corner-logo"> <!-- Add this line for logo in corner -->
+        <div class="container">
+            <h1>🐟Ocean-Life Contact Manager🐟</h1>
+            <h2>Add Contacts 📇</h2>
+            <button class="swap-button" onclick="toggleContactForm();">Add Contact</button>
+            <form id="contactForm" action="" method="post">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="contactfirstName" required placeholder="First Name">
+                <span></span><br><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="contactlastName" required placeholder="Last Name">
+                <span></span><br><br>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="contactphoneNumber" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="123-456-7890">
+                <span></span><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="contactemail" required placeholder="example@email.com">
+                <span></span><br><br>
+
+                <button type="submit" onclick="addContact();">Confirm</button>
+                <span class="text" id="searchContact"></span>
+            </form>
+
+            <h2>Search Contacts 🔍</h2>
+            <div class="input-group">
+                <input type="text" id="searchInput" placeholder="Search for names..">
+                <button class="swap-button" onclick="loadContacts();">Search</button>
+            </div>
+
+            <h2>Contacts 📖</h2>
+            <div class="tables">
+                <div class="tbl-content" id="tables">
+                    <table id="contactTable" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="js/code.js"></script>
-    <title>Contact Manager</title>
-    <link rel="stylesheet" href="css/contacts.css">
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-        readCookie();
-    }, false);
-</script>
-    
-</head>
-<body>
-    <button class="logout-button" onclick="logout();">Logout</button>
-    <h1>Fish Contact Manager</h1>
-    <h2>Add Contact</h2>
-    <button class="swap-button" onclick="showTable();">Add Contact</button>
-    <form id="contactForm" action="" method="post">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="contactfirstName" required placeholder="First Name"><br><br>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="contactlastName" required placeholder="Last Name"><br><br>
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="contactphoneNumber" required placeholder="123-456-7890"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="contactemail" required placeholder="example@email.com"><br><br>
-        <button type="submit" onclick="addContact();">Confirm</button>
-        <span class="text" id="searchContact"></span>
-    </form>
-
-    <h2>Search Contacts</h2>
-    <input type="text" id="searchInput" placeholder="Search for names..">
-    <button class="search-button" onclick="loadContacts();">Search</button>
-
-    <h2>Contacts</h2>
-    <!--contact table-->
-		<div class="tables">
-			<div class="tbl-content" id="tables">
-				<table id="contactTable" cellpadding="0" cellspacing="0" border="0">
-					<thread>
-						<tr>
-							<th>First&nbspName</th>
-							<th>Last&nbspName</th>
-							<th>Email</th>
-							<th>Phone</th>
-						</tr>
-					</thread>
-					<tbody id="tbody"></tbody>
-				</table>
-			</div>
-		</div>
-</body>
-</html>
-

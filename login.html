@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form id="login" class="input-form">
+                <input type="text" name="username" id="username_field" class="login_form_field" placeholder="Username" required>
+                <span></span>
+
+                <input type="password" name="password" id="password_field" class="login_form_field" placeholder="Password" required>
+                <span></span>
+
+                <div class="checkbox_pass">
+                    <input type="checkbox" onclick="showPasswordLogin();" placeholder="Show Password"><label>Show Password</label>
+                </div>
+                <button type="button" id="loginButton" class="submitBtn" onclick="doLogin();">Login</button>
+                <span class="text" id="loginResult"></span>
+            </form>
+        </div>
+        <button class="backBtn" onclick="location.href = 'signup.html';">Sign up Here</button>
+        </div>
+    </div>
+</body>
+</html>

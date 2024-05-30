@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <div id="signupForm">
+            <h2>Sign Up</h2>
+            <form id="signup" class="input-form">
+                <div class="input-group">
+                    <input type="text" name="firstName" id="signup_firstname_field" class="signup_form_field" placeholder="First Name" required>
+                    <span></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="lastName" id="signup_lastname_field" class="signup_form_field" placeholder="Last Name" required>
+                    <span></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="username" id="signup_username_field" class="signup_form_field" placeholder="Username" required>
+                    <span></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password_field" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" placeholder="Password" name="Password" required>
+                    <span></span>
+                </div>
+                <div class="checkbox_pass">
+                    <input type="checkbox" onclick="showPasswordLogin();" placeholder="Show Password"><label>Show Password</label>
+                </div>
+                <div id="password-requirements">
+                    <p>Password must contain:</p>
+                    <ul class="no-bullets">
+                        <li id="length" class="invalid">At least 8 characters</li>
+                        <li id="lowercase" class="invalid">At least one lowercase letter</li>
+                        <li id="capital" class="invalid">At least one uppercase letter</li>
+                        <li id="number" class="invalid">At least one number</li>
+                        <li id="special" class="invalid">At least one special character</li>
+                    </ul>
+                </div>
+                <button type="submit" id="signupButton" class="submitBtn2" onclick="doSignup();">Sign Up</button>
+                <span class="text" id="signupResult"></span>
+            </form>
+            <button class="backBtn" onclick="location.href = 'login.html';">Back to Login</button>
+        </div>
+    </div>
+    <script>
+        // Pass validation
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password_field');
+            const requirements = {
+                length: document.getElementById('length'),
+                capital: document.getElementById('capital'),
+                lowercase: document.getElementById('lowercase'),
+                number: document.getElementById('number'),
+                special: document.getElementById('special')
+            };
+
+            const validatePassword = (password) => {
+                const validations = {
+                    length: password.length >= 8,
+                    capital: /[A-Z]/.test(password),
+                    lowercase: /[a-z]/.test(password),
+                    number: /[0-9]/.test(password),
+                    special: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+                };
+
+                for (const key in validations) {
+                    requirements[key].classList.toggle('valid', validations[key]);
+                    requirements[key].classList.toggle('invalid', !validations[key]);
+                }
+
+                return Object.values(validations).every(Boolean);
+            };
+
+            passwordInput.addEventListener('input', () => {
+                validatePassword(passwordInput.value);
+            });
+
+            document.getElementById('signupForm').addEventListener('submit', (e) => {
+                if (!validatePassword(passwordInput.value)) {
+                    e.preventDefault();
+                    alert('Please meet all the password requirements before submitting.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
